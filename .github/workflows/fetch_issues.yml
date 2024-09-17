@@ -2,10 +2,10 @@ name: "fetch open issues"
 on:
   push:
     branches:
-      - master 
+      - main  
   pull_request:
     branches:
-      - master
+      - main
   schedule:
     - cron: '0 12 * * *'  # Runs at 12 PM every day
   
@@ -13,21 +13,21 @@ jobs:
   fetch_issues:
     runs-on: ubuntu-latest
     steps:
-      -name: checkout
-       uses: actions/checkout@v4
+      - name: checkout
+        uses: actions/checkout@v3
        
-      -name: setup python environment
-       uses: actions/setup-python@v4
-       with:
-         python-version: '3.x'
+      - name: setup python environment
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
        
       - name: install dependencies
         run: |
          python -m pip install --upgrade pip
          pip install requests pygithub
-      -name: Run the script
-       run: |
+      - name: Run the script
+        run: |
          python fetch_issues.py
 
-      env:
-       GITHUB_TOKEN: ${{ secrets.TOKEN }}
+        env:
+         GITHUB_TOKEN: ${{ secrets.TOKEN }}
