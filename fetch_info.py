@@ -1,7 +1,7 @@
 import requests
 import os
 
-API_URL = 'https://api.github.com"
+API_URL = "https://api.github.com"
 REPO = os.getenv('GITHUB_REPOSITORY')
 TOKEN = os.getenv('GITHUB_TOKEN')
 
