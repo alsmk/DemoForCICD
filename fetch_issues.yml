@@ -2,10 +2,10 @@ name: "fetch open issues"
 on:
   push:
     branches:
-      - master 
+      - main  
   pull_request:
     branches:
-      - master
+      - main
   schedule:
     - cron: '0 12 * * *'  # Runs at 12 PM every day
   
