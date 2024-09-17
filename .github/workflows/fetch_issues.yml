@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       -name: checkout
-       uses: actions/checkout@v3
+       uses: actions/checkout@v2
        
       -name: setup python environment
        uses: actions/setup-python@v4
@@ -30,4 +30,4 @@ jobs:
          python fetch_issues.py
 
       env:
-       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+       GITHUB_TOKEN: ${{ secrets.TOKEN }}
