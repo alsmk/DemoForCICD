@@ -28,7 +28,7 @@ jobs:
       - name: Run the script
         run: |
          python fetch_info.py
-         python test_github_fetch.py
+         python /tests/test_github_fetch.py
 
         env:
          GITHUB_TOKEN: ${{ secrets.TOKEN }}
