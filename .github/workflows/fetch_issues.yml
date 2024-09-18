@@ -24,10 +24,11 @@ jobs:
       - name: install dependencies
         run: |
          python -m pip install --upgrade pip
-         pip install requests pygithub
+         pip install requests pygithub coverage
       - name: Run the script
         run: |
          python fetch_info.py
+         python unittest discover tests
 
         env:
          GITHUB_TOKEN: ${{ secrets.TOKEN }}
