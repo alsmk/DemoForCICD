@@ -24,14 +24,16 @@ jobs:
       - name: install dependencies
         run: |
          python -m pip install --upgrade pip
-         pip install requests pygithub coverage
+         pip install requests pygithub coverage flake8 black 
       - name: Run the script
         run: |
          python fetch_info.py
          python test_github_fetch.py
+         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics 
          coverage run test_github_fetch.py
          coverage report --fail-under=80 --show-missing --skip-covered
          coverage html
+      
 
         env:
          GITHUB_TOKEN: ${{ secrets.TOKEN }}
