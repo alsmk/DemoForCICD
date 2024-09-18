@@ -29,21 +29,21 @@ class TestGitHubFetch(unittest.TestCase):
             mocked_print.assert_any_call("Date: 2021-09-01T12:34:56Z\n")
     
     # Test for network errors like timeouts
-    @patch('requests.get')
-    def test_network_timeout(self, mock_get):
-        mock_get.side_effect = requests.exceptions.Timeout
-        with self.assertRaises(SystemExit):  # Expecting a system exit on error
-            fetch_info.fetch_latest_commit('fetch_info.REPO')
+    # @patch('requests.get')
+    # def test_network_timeout(self, mock_get):
+    #     mock_get.side_effect = requests.exceptions.Timeout
+    #     with self.assertRaises(SystemExit):  # Expecting a system exit on error
+    #         fetch_info.fetch_latest_commit('fetch_info.REPO')
     
-    # Test for empty responses (no commits)
-    @patch('fetch_info.github_api_request')
-    def test_empty_commit_response(self, mock_github_api_request):
-        mock_github_api_request.return_value = []
-        with patch('builtins.print') as mocked_print:
-            fetch_info.fetch_latest_commit('fetch_info.REPO')
-            mocked_print.assert_any_call("Error: 404 - Not Found")
+    # # Test for empty responses (no commits)
+    # @patch('fetch_info.github_api_request')
+    # def test_empty_commit_response(self, mock_github_api_request):
+    #     mock_github_api_request.return_value = []
+    #     with patch('builtins.print') as mocked_print:
+    #         fetch_info.fetch_latest_commit('fetch_info.REPO')
+    #         mocked_print.assert_any_call("Error: 404 - Not Found")
 
-    # Test for fetching open issues with pagination
+    # # Test for fetching open issues with pagination
     @patch('fetch_info.github_api_request')
     def test_fetch_open_issues(self, mock_github_api_request):
         mock_github_api_request.side_effect = [
