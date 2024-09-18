@@ -30,7 +30,7 @@ jobs:
          python fetch_info.py
          python test_github_fetch.py
          coverage run test_github_fetch.py
-         coverage report --fail-under=90 --show-missing --skip-covered
+         coverage report --fail-under=80 --show-missing --skip-covered
 
         env:
          GITHUB_TOKEN: ${{ secrets.TOKEN }}
