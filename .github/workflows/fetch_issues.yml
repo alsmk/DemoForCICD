@@ -31,6 +31,7 @@ jobs:
          python test_github_fetch.py
          coverage run test_github_fetch.py
          coverage report --fail-under=80 --show-missing --skip-covered
+         coverage html
 
         env:
          GITHUB_TOKEN: ${{ secrets.TOKEN }}
