@@ -21,7 +21,7 @@ class TestGitHubFetch(unittest.TestCase):
         
         # Capture the printed output
         with patch('builtins.print') as mocked_print:
-            fetch_info.fetch_latest_commit('owner/repo')
+            fetch_info.fetch_latest_commit('fetch_info.REPO')
             mocked_print.assert_any_call("Latest Commit Details:")
             mocked_print.assert_any_call("Commit SHA: abc123")
             mocked_print.assert_any_call("Author: John Doe")
